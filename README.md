@@ -44,6 +44,26 @@ Python modules to be installed:
 - Install the required python modules: `pip3 install PyPDF2 pandas reportlab`
 - Clone this repository: `git clone https://github.com/sanbabyfrancis/certificate-generator.git`
 
+### Installation with Virtual Environment (venv)
+#### Create venv
+```
+python -m venv venv
+```
+#### Activate venv
+Linux / Mac
+```
+source venv/activate/bin
+```
+Windows
+```
+venv/Scripts/activate
+```
+
+#### Install dependencies
+```
+pip install -r requirements.txt
+```
+
 <!-- USAGE EXAMPLES -->
 ## Usage
 
