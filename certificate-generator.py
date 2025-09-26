@@ -1,4 +1,4 @@
-from PyPDF2 import PdfFileWriter, PdfFileReader
+from PyPDF2 import PdfWriter, PdfReader
 import io
 import os
 import pandas as pd
@@ -49,15 +49,15 @@ for i in names:
 
     can.save()
     packet.seek(0)
-    new_pdf = PdfFileReader(packet)
+    new_pdf = PdfReader(packet)
 
     # provide the certificate template
-    existing_pdf = PdfFileReader(open(certemplate, "rb"))
+    existing_pdf = PdfReader(open(certemplate, "rb"))
 
-    output = PdfFileWriter()
-    page = existing_pdf.getPage(0)
-    page.mergePage(new_pdf.getPage(0))
-    output.addPage(page)
+    output = PdfWriter()
+    page = existing_pdf.pages[0]
+    page.merge_page(new_pdf.pages[0])
+    output.add_page(page)
     destination = "certificates" + os.sep + i + ".pdf"
     outputStream = open(destination, "wb")
     output.write(outputStream)
